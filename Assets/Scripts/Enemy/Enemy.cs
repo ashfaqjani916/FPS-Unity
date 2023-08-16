@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
                     RaycastHit hitInfo = new RaycastHit();
                     if(Physics.Raycast(ray,out hitInfo,sightDistance))
                     {
-                        if(hitInfo.transform.gameObject == player)
+                        if(hitInfo.transform.gameObject == player)  
                         {
                             return true;
                         }
