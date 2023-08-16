@@ -14,11 +14,15 @@ public class PlayerMotor : MonoBehaviour
     public bool crouching = false;
     private float crouchTimer = 0f;
     private bool lerpCrouch = true;
+    private GameObject player;
+    private GameObject barrel ;
+
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -80,5 +84,21 @@ public class PlayerMotor : MonoBehaviour
         speed = 8;
         else 
         speed = 5;
+    }
+
+    public void Shoot()
+    {
+         Debug.Log("Shoot jhncuibca f kjhasdcnaw calbnkweuifnasduihav");
+        Vector3 point = barrel.transform.position;
+        
+        barrel = GameObject.FindGameObjectWithTag("Player");
+        Ray ray = new Ray(point,barrel.transform.forward);
+       RaycastHit hit;
+       if(Physics.Raycast(point,ray.direction,out hit,20f))
+       {
+        //GameObject bullet = GameObject.Instantiate(Resources.Load("bullet 1") as GameObject,point,player.transform.rotation);
+        //bullet.GetComponent<Rigidbody>().velocity = Quaternion.AngleAxis(Random.Range(-1f,1f),Vector3.up) * ray.direction*40;
+        Debug.Log("Shoot jhncuibca f kjhasdcnaw calbnkweuifnasduihav");
+       }
     }
 }
