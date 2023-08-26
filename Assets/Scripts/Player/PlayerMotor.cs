@@ -88,17 +88,19 @@ public class PlayerMotor : MonoBehaviour
 
     public void Shoot()
     {
-         Debug.Log("Shoot jhncuibca f kjhasdcnaw calbnkweuifnasduihav");
-        Vector3 point = barrel.transform.position;
+         
+        
         
         barrel = GameObject.FindGameObjectWithTag("Player");
+        Vector3 point = barrel.transform.position;
         Ray ray = new Ray(point,barrel.transform.forward);
        RaycastHit hit;
        if(Physics.Raycast(point,ray.direction,out hit,20f))
        {
+        
         GameObject bullet = GameObject.Instantiate(Resources.Load("bullet 1") as GameObject,point,player.transform.rotation);
         bullet.GetComponent<Rigidbody>().velocity = Quaternion.AngleAxis(Random.Range(-1f,1f),Vector3.up) * ray.direction*40;
-        Debug.Log("Shoot jhncuibca f kjhasdcnaw calbnkweuifnasduihav");
+        
         Debug.DrawRay(ray.origin, ray.direction*20f);
        }
     }
